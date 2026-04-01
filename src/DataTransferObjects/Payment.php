@@ -33,7 +33,7 @@ final readonly class Payment implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             paymentMethodId: (int) $data['payment_method_id'],
             value: (float) $data['value'],
             date: $data['date'] ?? null,

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DigitaldevLx\LaravelMoloni;
 
 use DigitaldevLx\LaravelMoloni\Http\MoloniClient;
-use DigitaldevLx\LaravelMoloni\Resources;
 
 final class Moloni
 {

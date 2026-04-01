@@ -5,7 +5,15 @@ declare(strict_types=1);
 namespace DigitaldevLx\LaravelMoloni\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property string $access_token
+ * @property string $refresh_token
+ * @property Carbon $expires_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 final class MoloniToken extends Model
 {
     protected $fillable = [
@@ -13,6 +21,16 @@ final class MoloniToken extends Model
         'refresh_token',
         'expires_at',
     ];
+
+    public function isExpired(): bool
+    {
+        return $this->expires_at->isPast();
+    }
+
+    public static function current(): ?self
+    {
+        return self::query()->latest()->first();
+    }
 
     /**
      * @return array<string, string>
@@ -24,15 +42,5 @@ final class MoloniToken extends Model
             'refresh_token' => 'encrypted',
             'expires_at' => 'datetime',
         ];
-    }
-
-    public function isExpired(): bool
-    {
-        return $this->expires_at->isPast();
-    }
-
-    public static function current(): ?self
-    {
-        return self::query()->latest()->first();
     }
 }

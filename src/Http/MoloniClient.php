@@ -42,13 +42,13 @@ final class MoloniClient
         $this->ensureAuthenticated();
 
         $response = $this->httpClient()
-            ->post(self::BASE_URL . $endpoint . '/', array_merge(['json' => true, 'human_errors' => true], $params));
+            ->post(self::BASE_URL.$endpoint.'/', array_merge(['json' => true, 'human_errors' => true], $params));
 
         if ($response->status() === 401) {
             $this->refreshAccessToken();
 
             $response = $this->httpClient()
-                ->post(self::BASE_URL . $endpoint . '/', array_merge(['json' => true, 'human_errors' => true], $params));
+                ->post(self::BASE_URL.$endpoint.'/', array_merge(['json' => true, 'human_errors' => true], $params));
         }
 
         if ($response->status() === 429) {
@@ -86,7 +86,7 @@ final class MoloniClient
             }
 
             throw new AuthenticationException(
-                'Failed to authenticate with Moloni API: ' . $response->body(),
+                'Failed to authenticate with Moloni API: '.$response->body(),
                 code: $response->status(),
             );
         }
@@ -175,7 +175,7 @@ final class MoloniClient
         }
 
         throw new MoloniException(
-            message: "Moloni API error on {$endpoint} (HTTP {$response->status()}): " . $response->body(),
+            message: "Moloni API error on {$endpoint} (HTTP {$response->status()}): ".$response->body(),
             code: $response->status(),
         );
     }

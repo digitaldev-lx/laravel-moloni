@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-04-01
+
+### Fixed
+- Code style fixes (Pint formatting)
+- PHPDoc annotations across all Resource classes
+- PHPStan compliance (excluded Concerns from analysis, fixed static constructors in DTOs, typed config casts in ServiceProvider)
+- MoloniToken model property annotations
+
 ## [1.0.0] - 2026-03-31
 
 ### Added

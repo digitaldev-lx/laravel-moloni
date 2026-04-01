@@ -73,7 +73,7 @@ final readonly class Document implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             documentSetId: (int) $data['document_set_id'],
             customerId: (int) $data['customer_id'],
             date: $data['date'],

@@ -33,7 +33,7 @@ final readonly class Tax implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             taxId: (int) $data['tax_id'],
             value: (float) $data['value'],
             order: isset($data['order']) ? (int) $data['order'] : null,

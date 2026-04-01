@@ -65,7 +65,7 @@ final readonly class Product implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             name: $data['name'],
             reference: $data['reference'],
             type: ProductType::from((int) $data['type']),

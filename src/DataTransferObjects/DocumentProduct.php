@@ -54,7 +54,7 @@ final readonly class DocumentProduct implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             productId: (int) $data['product_id'],
             qty: (float) $data['qty'],
             price: (float) $data['price'],

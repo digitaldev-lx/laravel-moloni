@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use DigitaldevLx\LaravelMoloni\Http\MoloniClient;
+use DigitaldevLx\LaravelMoloni\Models\MoloniToken;
 use DigitaldevLx\LaravelMoloni\Moloni;
 use DigitaldevLx\LaravelMoloni\Providers\MoloniServiceProvider;
 use Illuminate\Support\ServiceProvider;
@@ -41,7 +42,7 @@ describe('MoloniServiceProvider', function (): void {
 
     it('loads migrations and creates the moloni_tokens table', function (): void {
         // The table was created by the migration, so we can run a query against it
-        expect(\DigitaldevLx\LaravelMoloni\Models\MoloniToken::query()->count())->toBe(0);
+        expect(MoloniToken::query()->count())->toBe(0);
     });
 
     it('builds MoloniClient using config values', function (): void {

@@ -8,6 +8,9 @@ use DigitaldevLx\LaravelMoloni\Attributes\MoloniEndpoint;
 
 final class FiscalZones extends Resource
 {
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'fiscalZones/getAll', description: 'List all fiscal zones for a country')]
     public function getAll(int $countryId): array
     {

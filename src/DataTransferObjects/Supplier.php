@@ -57,7 +57,7 @@ final readonly class Supplier implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             vat: $data['vat'],
             number: $data['number'],
             name: $data['name'],

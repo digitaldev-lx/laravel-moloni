@@ -8,24 +8,38 @@ use DigitaldevLx\LaravelMoloni\Attributes\MoloniEndpoint;
 
 final class Taxes extends Resource
 {
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'taxes/getAll', description: 'List all taxes')]
     public function getAll(int $companyId): array
     {
         return $this->call(__FUNCTION__, ['company_id' => $companyId]);
     }
 
+    /**
+     * @param  array<string, mixed>  $data
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'taxes/insert', description: 'Insert a tax')]
     public function insert(int $companyId, array $data): array
     {
         return $this->call(__FUNCTION__, array_merge(['company_id' => $companyId], $data));
     }
 
+    /**
+     * @param  array<string, mixed>  $data
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'taxes/update', description: 'Update a tax')]
     public function update(int $companyId, array $data): array
     {
         return $this->call(__FUNCTION__, array_merge(['company_id' => $companyId], $data));
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'taxes/delete', description: 'Delete a tax')]
     public function delete(int $companyId, int $taxId): array
     {

@@ -8,6 +8,9 @@ use DigitaldevLx\LaravelMoloni\Attributes\MoloniEndpoint;
 
 final class Countries extends Resource
 {
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'countries/getAll', description: 'List all countries')]
     public function getAll(): array
     {

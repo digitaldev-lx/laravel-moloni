@@ -40,7 +40,7 @@ final class ValidationException extends MoloniException
 
         $fieldNames = array_column($parsedErrors, 'field');
         $message = $parsedErrors !== []
-            ? 'Moloni validation error on fields: ' . implode(', ', $fieldNames)
+            ? 'Moloni validation error on fields: '.implode(', ', $fieldNames)
             : 'Moloni validation error';
 
         return new self(

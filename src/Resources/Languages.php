@@ -8,6 +8,9 @@ use DigitaldevLx\LaravelMoloni\Attributes\MoloniEndpoint;
 
 final class Languages extends Resource
 {
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'languages/getAll', description: 'List all languages')]
     public function getAll(): array
     {

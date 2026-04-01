@@ -8,6 +8,9 @@ use DigitaldevLx\LaravelMoloni\Attributes\MoloniEndpoint;
 
 final class Currencies extends Resource
 {
+    /**
+     * @return array<string, mixed>
+     */
     #[MoloniEndpoint(path: 'currencies/getAll', description: 'List all currencies')]
     public function getAll(): array
     {

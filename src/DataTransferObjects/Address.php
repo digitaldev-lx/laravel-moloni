@@ -33,7 +33,7 @@ final readonly class Address implements DataTransferObject
      */
     public static function fromArray(array $data): static
     {
-        return new static(
+        return new self(
             address: $data['address'] ?? null,
             city: $data['city'] ?? null,
             zipCode: $data['zip_code'] ?? null,

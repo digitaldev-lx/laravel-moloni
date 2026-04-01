@@ -19,7 +19,7 @@ abstract class Resource
      * Resolves the endpoint path from the MoloniEndpoint attribute
      * on the calling method, then dispatches the POST request.
      *
-     * @param array<string, mixed> $params
+     * @param  array<string, mixed>  $params
      * @return array<string, mixed>
      */
     protected function call(string $method, array $params = []): array
