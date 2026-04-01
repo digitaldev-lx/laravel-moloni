@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DigitaldevLx\LaravelMoloni\Events;
+
+use Illuminate\Foundation\Events\Dispatchable;
+
+final readonly class DocumentClosed
+{
+    use Dispatchable;
+
+    /**
+     * @param  array<string, mixed>  $data
+     */
+    public function __construct(
+        public array $data,
+        public string $documentType,
+    ) {}
+}
