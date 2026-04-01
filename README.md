@@ -215,7 +215,7 @@ All DTOs are located in the `DigitaldevLx\LaravelMoloni\DataTransferObjects` nam
 
 ### Using Events
 
-The package dispatches events for all mutation operations. You can listen for these in your `EventServiceProvider` or using closures:
+The package dispatches events for all mutation operations:
 
 | Event | Dispatched When |
 |---|---|
@@ -230,17 +230,49 @@ The package dispatches events for all mutation operations. You can listen for th
 
 All events are located in the `DigitaldevLx\LaravelMoloni\Events` namespace.
 
+#### Auto-discovery (recommended)
+
+Create a listener class in your `app/Listeners` directory. Laravel automatically discovers and registers listeners based on the type-hint in the `handle` method:
+
 ```php
 use DigitaldevLx\LaravelMoloni\Events\DocumentCreated;
 
-class EventServiceProvider extends ServiceProvider
+class SendInvoiceNotification
 {
-    protected $listen = [
-        DocumentCreated::class => [
-            SendInvoiceNotification::class,
-        ],
-    ];
+    public function handle(DocumentCreated $event): void
+    {
+        // $event->data contains the API response
+        // $event->documentType contains the document type
+    }
 }
+```
+
+#### Manual registration
+
+Register listeners manually in your `AppServiceProvider`:
+
+```php
+use DigitaldevLx\LaravelMoloni\Events\DocumentCreated;
+use Illuminate\Support\Facades\Event;
+
+public function boot(): void
+{
+    Event::listen(
+        DocumentCreated::class,
+        SendInvoiceNotification::class,
+    );
+}
+```
+
+#### Closure listeners
+
+```php
+use DigitaldevLx\LaravelMoloni\Events\DocumentCreated;
+use Illuminate\Support\Facades\Event;
+
+Event::listen(function (DocumentCreated $event) {
+    // ...
+});
 ```
 
 ### Error Handling
