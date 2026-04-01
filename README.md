@@ -12,7 +12,7 @@ A Laravel package for integrating with the [Moloni invoicing API](https://www.mo
 ## Requirements
 
 - PHP 8.4+
-- Laravel 12
+- Laravel 12 or 13
 
 ## Installation
 
